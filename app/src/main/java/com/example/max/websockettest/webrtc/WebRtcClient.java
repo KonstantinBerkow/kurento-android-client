@@ -209,14 +209,10 @@ public class WebRtcClient implements AsyncHttpClient.WebSocketConnectCallback, W
         try {
             String response = message.getString("response");
             if (response.equalsIgnoreCase("accepted")) {
-                //setRegisterState(REGISTERED);
-                //document.getElementById('peer').focus();
                 Log.i(TAG, "Register success");
             } else {
-                //setRegisterState(NOT_REGISTERED);
                 String errorMessage = !message.getString("message").isEmpty() ? message.getString("message") : "Unknown register rejection reason";
                 Log.e("RegisterResponse", errorMessage);
-                //document.getElementById('name').focus();
                 Log.i(TAG, "Error registering user. See console for further information.");
             }
         } catch (JSONException e) {
